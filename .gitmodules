@@ -1,0 +1,3 @@
+[submodule "external/hearmeman"]
+	path = external/hearmeman
+	url = https://github.com/Hearmeman24/comfyui-flux-template.git
