@@ -1,7 +1,7 @@
 {
   "name": "ComfyUI Flux Custom",
   "description": "RunPod template wrapping Hearmeman’s ComfyUI-Flux with CivitAI, HF & FileBrowser",
-  "image": "joyc0025/comfyui-flux-custom:v2",
+  "image": "joyc0025/comfyui-flux-custom:v3",
   "containerDiskInGb": 50,
   "volumeInGb": 100,
   "ports": [
