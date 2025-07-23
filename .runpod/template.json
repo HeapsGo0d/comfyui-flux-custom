@@ -1,48 +1,27 @@
 {
-  "name": "ComfyUI Flux Template",
-  "description": "Production-ready ComfyUI template with Flux models, FileBrowser, and CivitAI integration",
+  "name": "ComfyUI Flux Custom",
+  "description": "RunPod template wrapping Hearmeman’s ComfyUI-Flux with CivitAI, HF & FileBrowser",
   "image": "joyc0025/comfyui-flux-custom:v1",
   "containerDiskInGb": 50,
   "volumeInGb": 100,
-  "volumeMountPath": "/runpod-volume",
-  "ports": "7860/http,8080/http,3000/http",
-  "env": [
-    {
-      "key": "USE_VOLUME",
-      "value": "true",
-      "description": "Use persistent volume for models and data"
-    },
-    {
-      "key": "FILEBROWSER",
-      "value": "true",
-      "description": "Enable FileBrowser web interface"
-    },
-    {
-      "key": "FILEBROWSER_PASSWORD",
-      "value": "admin",
-      "description": "Password for FileBrowser (username: admin)"
-    },
-    {
-      "key": "CIVITAI_TOKEN",
-      "value": "",
-      "description": "CivitAI API token for model downloads"
-    },
-    {
-      "key": "CHECKPOINT_IDS_TO_DOWNLOAD",
-      "value": "",
-      "description": "Comma-separated list of CivitAI checkpoint model IDs to download"
-    },
-    {
-      "key": "LORA_IDS_TO_DOWNLOAD",
-      "value": "",
-      "description": "Comma-separated list of CivitAI LoRA model IDs to download"
-    },
-    {
-      "key": "VAE_IDS_TO_DOWNLOAD",
-      "value": "",
-      "description": "Comma-separated list of CivitAI VAE model IDs to download"
-    }
+  "ports": [
+    { "containerPort": 7860, "description": "ComfyUI Web UI" },
+    { "containerPort": 8080, "description": "FileBrowser UI" },
+    { "containerPort": 3000, "description": "Node.js UI (optional)" }
   ],
-  "startScript": "",
-  "readme": "# ComfyUI Flux Template\n\nThis template provides a production-ready ComfyUI environment with:\n\n- **ComfyUI**: Latest version with Flux model support\n- **FileBrowser**: Web-based file manager (port 8080)\n- **CivitAI Integration**: Automatic model downloads\n- **GPU Support**: Optimized for RTX 4090/5090, A100, H100\n\n## Ports\n- **7860**: ComfyUI Web Interface\n- **8080**: FileBrowser (if enabled)\n- **3000**: Alternative UI port\n\n## Environment Variables\n- `USE_VOLUME`: Use persistent volume (recommended: true)\n- `FILEBROWSER`: Enable file browser (true/false)\n- `FILEBROWSER_PASSWORD`: FileBrowser password\n- `CIVITAI_TOKEN`: Your CivitAI API token\n- `CHECKPOINT_IDS_TO_DOWNLOAD`: Model IDs to download\n- `LORA_IDS_TO_DOWNLOAD`: LoRA IDs to download\n- `VAE_IDS_TO_DOWNLOAD`: VAE IDs to download\n\n## Usage\n1. Set your CivitAI token and model IDs\n2. Start the pod\n3. Access ComfyUI at `https://[pod-id]-7860.proxy.runpod.net`\n4. Access FileBrowser at `https://[pod-id]-8080.proxy.runpod.net`\n\n## Model Downloads\nModels are automatically downloaded from CivitAI on startup if token and IDs are provided.\n\n## Persistent Storage\nWhen `USE_VOLUME=true`, all models and data persist between pod restarts."
+  "env": [
+    { "name": "USE_VOLUME",                  "value": "false", "description": "Use /runpod-volume for storage" },
+    { "name": "FILEBROWSER",                 "value": "false", "description": "Enable FileBrowser" },
+    { "name": "FB_USERNAME",                 "value": "admin",  "description": "FileBrowser admin user" },
+    { "name": "FB_PASSWORD",                 "value": "admin",  "description": "FileBrowser admin pass" },
+    { "name": "CIVITAI_TOKEN",               "value": "",      "description": "CivitAI API token" },
+    { "name": "HUGGINGFACE_TOKEN",           "value": "",      "description": "Hugging Face token for private models" },
+    { "name": "CHECKPOINT_IDS_TO_DOWNLOAD",  "value": "",      "description": "Comma-separated CivitAI checkpoint IDs" },
+    { "name": "LORA_IDS_TO_DOWNLOAD",        "value": "",      "description": "Comma-separated CivitAI LoRA IDs" },
+    { "name": "VAE_IDS_TO_DOWNLOAD",         "value": "",      "description": "Comma-separated CivitAI VAE IDs" },
+    { "name": "FLUX_MODEL_IDS_TO_DOWNLOAD",  "value": "",      "description": "Comma-separated Flux model IDs (HuggingFace)" },
+    { "name": "DOWNLOAD_PULID",              "value": "false", "description": "Download PuLID model" },
+    { "name": "DOWNLOAD_FLUX_CONTROLNET",    "value": "false", "description": "Download Flux ControlNet" },
+    { "name": "DOWNLOAD_FLUX_KONTEXT",       "value": "false", "description": "Download Flux Kontext models" }
+  ]
 }
