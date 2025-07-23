@@ -1,7 +1,7 @@
 {
   "name": "ComfyUI Flux Custom",
   "description": "RunPod template wrapping Hearmeman’s ComfyUI-Flux with CivitAI, HF & FileBrowser",
-  "image": "joyc0025/comfyui-flux-custom:v1",
+  "image": "joyc0025/comfyui-flux-custom:v2",
   "containerDiskInGb": 50,
   "volumeInGb": 100,
   "ports": [
@@ -10,18 +10,70 @@
     { "containerPort": 3000, "description": "Node.js UI (optional)" }
   ],
   "env": [
-    { "name": "USE_VOLUME",                  "value": "false", "description": "Use /runpod-volume for storage" },
-    { "name": "FILEBROWSER",                 "value": "false", "description": "Enable FileBrowser" },
-    { "name": "FB_USERNAME",                 "value": "admin",  "description": "FileBrowser admin user" },
-    { "name": "FB_PASSWORD",                 "value": "admin",  "description": "FileBrowser admin pass" },
-    { "name": "CIVITAI_TOKEN",               "value": "",      "description": "CivitAI API token" },
-    { "name": "HUGGINGFACE_TOKEN",           "value": "",      "description": "Hugging Face token for private models" },
-    { "name": "CHECKPOINT_IDS_TO_DOWNLOAD",  "value": "",      "description": "Comma-separated CivitAI checkpoint IDs" },
-    { "name": "LORA_IDS_TO_DOWNLOAD",        "value": "",      "description": "Comma-separated CivitAI LoRA IDs" },
-    { "name": "VAE_IDS_TO_DOWNLOAD",         "value": "",      "description": "Comma-separated CivitAI VAE IDs" },
-    { "name": "FLUX_MODEL_IDS_TO_DOWNLOAD",  "value": "",      "description": "Comma-separated Flux model IDs (HuggingFace)" },
-    { "name": "DOWNLOAD_PULID",              "value": "false", "description": "Download PuLID model" },
-    { "name": "DOWNLOAD_FLUX_CONTROLNET",    "value": "false", "description": "Download Flux ControlNet" },
-    { "name": "DOWNLOAD_FLUX_KONTEXT",       "value": "false", "description": "Download Flux Kontext models" }
+    {
+      "name": "USE_VOLUME",
+      "value": "false",
+      "description": "Use /runpod-volume for storage"
+    },
+    {
+      "name": "FILEBROWSER",
+      "value": "false",
+      "description": "Enable FileBrowser service"
+    },
+    {
+      "name": "FB_USERNAME",
+      "value": "admin",
+      "description": "FileBrowser admin user"
+    },
+    {
+      "name": "FB_PASSWORD",
+      "value": "admin",
+      "description": "FileBrowser admin pass"
+    },
+    {
+      "name": "CIVITAI_TOKEN",
+      "value": "",
+      "description": "CivitAI API token"
+    },
+    {
+      "name": "HUGGINGFACE_TOKEN",
+      "value": "",
+      "description": "Hugging Face token for private model downloads"
+    },
+    {
+      "name": "CHECKPOINT_IDS_TO_DOWNLOAD",
+      "value": "",
+      "description": "Comma-separated CivitAI checkpoint IDs"
+    },
+    {
+      "name": "LORA_IDS_TO_DOWNLOAD",
+      "value": "",
+      "description": "Comma-separated CivitAI LoRA IDs"
+    },
+    {
+      "name": "VAE_IDS_TO_DOWNLOAD",
+      "value": "",
+      "description": "Comma-separated CivitAI VAE IDs"
+    },
+    {
+      "name": "FLUX_MODEL_IDS_TO_DOWNLOAD",
+      "value": "",
+      "description": "Comma-separated Flux model IDs (HuggingFace)"
+    },
+    {
+      "name": "DOWNLOAD_PULID",
+      "value": "false",
+      "description": "Download PuLID model"
+    },
+    {
+      "name": "DOWNLOAD_FLUX_CONTROLNET",
+      "value": "false",
+      "description": "Download Flux ControlNet"
+    },
+    {
+      "name": "DOWNLOAD_FLUX_KONTEXT",
+      "value": "false",
+      "description": "Download Flux Kontext models"
+    }
   ]
 }
