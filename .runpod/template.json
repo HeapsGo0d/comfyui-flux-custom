@@ -1,7 +1,7 @@
 {
   "name": "ComfyUI Flux Template",
   "description": "Production-ready ComfyUI template with Flux models, FileBrowser, and CivitAI integration",
-  "image": "your-registry/comfyui-flux:latest",
+  "image": "joyc0025/comfyui-flux-custom:v1",
   "containerDiskInGb": 50,
   "volumeInGb": 100,
   "volumeMountPath": "/runpod-volume",
